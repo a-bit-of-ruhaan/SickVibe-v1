@@ -1,0 +1,101 @@
+/* Core App Theme Background and Base Text */
+.stApp {
+    background-color: #050505;
+    color: #FFFFFF;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Custom Text Styling */
+.song-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #FFFFFF;
+    margin-top: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.song-artist {
+    font-size: 0.95rem;
+    color: #FF6B00; /* Modern Neon Orange */
+    font-weight: 500;
+}
+
+.song-album {
+    font-size: 0.8rem;
+    color: #888888;
+    margin-bottom: 12px;
+}
+
+/* List View Custom Typography */
+.list-title {
+    font-weight: 600;
+    font-size: 1.05rem;
+    color: #FFFFFF;
+    margin-bottom: 2px;
+}
+
+.list-meta {
+    font-size: 0.85rem;
+    color: #888888;
+}
+
+.list-meta-orange {
+    color: #FF6B00;
+    font-weight: 500;
+}
+
+/* Search Bar Input Modification */
+.stTextInput input {
+    background-color: #121212 !important;
+    color: #FFFFFF !important;
+    border: 1px solid #222222 !important;
+    border-radius: 30px !important;
+    padding: 12px 20px !important;
+}
+
+.stTextInput input:focus {
+    border-color: #FF6B00 !important;
+    box-shadow: 0 0 10px rgba(255, 107, 0, 0.3) !important;
+}
+
+/* Container Cards (Tiles) */
+[data-testid="stVerticalBlockBorderWrapper"] {
+    background-color: #121212 !important;
+    border: 1px solid #1a1a1a !important;
+    border-radius: 12px !important;
+    padding: 15px !important;
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+[data-testid="stVerticalBlockBorderWrapper"]:hover {
+    transform: translateY(-4px) !important;
+    border-color: #FF6B00 !important; 
+    box-shadow: 0 4px 20px rgba(255, 107, 0, 0.15) !important;
+}
+
+/* Horizontal List Item Rows */
+.list-row {
+    background-color: #121212;
+    border: 1px solid #1a1a1a;
+    border-radius: 8px;
+    padding: 10px;
+    transition: border-color 0.2s ease;
+}
+
+/* Native Browser Audio Player Styling (Tinted Orange) */
+audio {
+    filter: invert(1) hue-rotate(150deg) saturate(3); 
+    width: 100%;
+    margin-top: 5px;
+    border-radius: 30px;
+}
+
+/* Custom Dividers */
+.orange-divider {
+    border: 0;
+    height: 1px;
+    background: linear-gradient(to right, rgba(255,107,0,0.3), rgba(0,0,0,0));
+    margin: 12px 0;
+}
