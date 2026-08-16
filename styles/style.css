@@ -1,26 +1,25 @@
 :root {
-    --bg-dark-absolute: #030303;
-    --bg-dark-card: #0A0A0A;
-    --bg-dark-surface: #121212;
+    --bg-dark-absolute: #020204;
+    --bg-dark-card: #09090e;
+    --bg-dark-surface: #111116;
     --brand-orange: #FF5500;
-    --brand-orange-glow: rgba(255, 85, 0, 0.25);
-    --brand-orange-light: rgba(255, 85, 0, 0.1);
-    --brand-orange-border: rgba(255, 85, 0, 0.2);
-    --text-muted: #8F8F94;
+    --brand-neon: #FF7700;
+    --brand-orange-glow: rgba(255, 85, 0, 0.4);
+    --brand-orange-light: rgba(255, 85, 0, 0.06);
+    --brand-orange-border: rgba(255, 85, 0, 0.3);
+    --text-muted: #7E7E86;
     --text-white: #FFFFFF;
-    --border-subtle: rgba(255, 255, 255, 0.04);
-    --border-light: rgba(255, 255, 255, 0.08);
-    --border-lighter: rgba(255, 255, 255, 0.03);
-    --border-minimal: rgba(255, 255, 255, 0.02);
+    --border-subtle: rgba(255, 255, 255, 0.03);
+    --border-light: rgba(255, 255, 255, 0.06);
 }
 
 .stApp {
-    background: radial-gradient(circle at 50% 0%, #160B04 0%, var(--bg-dark-absolute) 70%) !important;
+    background: radial-gradient(circle at 50% -20%, #200a00 0%, var(--bg-dark-absolute) 60%) !important;
     color: var(--text-white) !important;
-    font-family: 'Inter', system-ui, -apple-system, sans-serif !important;
+    font-family: 'Inter', system-ui, sans-serif !important;
 }
 
-/* Layout & Sidebar */
+/* Layout & Sidebar Fixes */
 [data-testid="stSidebar"], 
 [data-testid="stSidebarCollapsedControl"] {
     display: none !important;
@@ -31,12 +30,12 @@
     max-width: 100% !important;
     width: 100% !important;
     margin-left: 0 !important;
-    padding: 0 5rem !important;
+    padding: 0 4% !important; 
 }
 
 @media (max-width: 768px) {
     [data-testid="stAppViewBlockContainer"] {
-        padding: 0 1.5rem !important;
+        padding: 0 1rem !important; 
     }
 }
 
@@ -70,11 +69,17 @@
 
 /* Card Styles */
 .song-card-wrapper {
-    background: linear-gradient(180deg, rgba(255,255,255,0.02) 0%, rgba(255,255,255,0) 100%);
-    backdrop-filter: blur(12px);
+    background: rgba(10, 10, 14, 0.4);
+    backdrop-filter: blur(20px);
     border: 1px solid var(--border-subtle);
-    border-radius: 16px;
+    border-radius: 20px;
     padding: 24px;
+    transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.song-card-wrapper:hover {
+    transform: translateY(-4px);
+    border-color: rgba(255, 85, 0, 0.15);
 }
 
 .meta-pill-vertical-stack {
@@ -88,7 +93,7 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    background: var(--border-minimal);
+    background: transparent;
     border: 1px solid var(--border-subtle);
     border-radius: 10px;
     padding: 10px 14px;
@@ -113,13 +118,14 @@
 
 /* Image Scaling */
 .song-cover-container img {
-    border-radius: 12px !important;
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.7) !important;
-    transition: transform 0.4s ease !important;
+    border-radius: 14px !important;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.8) !important;
+    transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1) !important;
 }
 
 .song-cover-container:hover img {
-    transform: scale(1.02);
+    transform: scale(1.03) translateY(-2px);
+    box-shadow: 0 20px 45px rgba(255, 85, 0, 0.15) !important;
 }
 
 /* Playback Console */
@@ -168,7 +174,7 @@
     display: flex;
     align-items: center;
     gap: 12px;
-    background: var(--border-minimal);
+    background: transparent;
     border: 1px solid var(--border-lighter);
     border-bottom: none;
     border-radius: 8px 8px 0 0;
@@ -202,7 +208,7 @@
 
 .stButton > button[key^="play_queue_"] {
     border-radius: 0 0 8px 8px !important;
-    background-color: var(--border-minimal) !important;
+    background-color: transparent !important;
     border: 1px solid var(--border-subtle) !important;
     border-top: none !important;
     color: var(--text-muted) !important;
@@ -232,22 +238,72 @@
     box-shadow: 0 0 20px var(--brand-orange-glow) !important;
 }
 
-/* Buttons */
+/* THE UNIQUE CYBERPUNK BUTTON OVERHAUL */
 .stButton button {
-    border-radius: 10px !important;
-    font-weight: 600 !important;
-    transition: all 0.2s ease !important;
+    width: 100% !important;
+    height: 44px !important;
+    border-radius: 8px !important;
+    font-weight: 700 !important;
+    font-size: 0.85rem !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.1em !important;
+    
+    /* Neomorphic glass baseline */
+    background: linear-gradient(135deg, rgba(255, 85, 0, 0.03) 0%, rgba(0, 0, 0, 0) 100%) !important;
+    border: 1px solid rgba(255, 85, 0, 0.25) !important;
+    color: #FF8833 !important;
+    
+    /* Interactive layout animations */
+    position: relative !important;
+    overflow: hidden !important;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
+    transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1) !important;
 }
 
+/* Glowing Accent Border Lines */
+.stButton button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 119, 0, 0.2), transparent);
+    transition: all 0.6s ease;
+}
+
+/* Hover State - Fluid Glow Shift */
+.stButton button:hover {
+    color: #FFFFFF !important;
+    border-color: var(--brand-neon) !important;
+    background: var(--brand-orange) !important;
+    box-shadow: 0 0 25px rgba(255, 85, 0, 0.45), 
+                inset 0 0 12px rgba(255, 255, 255, 0.2) !important;
+    transform: translateY(-2px) !important;
+}
+
+.stButton button:hover::before {
+    left: 100%;
+}
+
+/* Active Click Effect */
+.stButton button:active {
+    transform: translateY(1px) !important;
+    box-shadow: 0 0 10px rgba(255, 85, 0, 0.3) !important;
+}
+
+/* Premium Primary Buttons (Search/Submit Actions) */
 .stButton button[data-testid="baseButton-primary"] {
-    background-color: var(--brand-orange) !important;
+    background: linear-gradient(135deg, #FF7700 0%, #FF3300 100%) !important;
     border: none !important;
-    box-shadow: 0 4px 15px var(--brand-orange-glow) !important;
+    color: #000000 !important;
+    box-shadow: 0 6px 20px var(--brand-orange-glow) !important;
 }
 
 .stButton button[data-testid="baseButton-primary"]:hover {
-    transform: translateY(-2px) !important;
-    box-shadow: 0 6px 20px rgba(255, 85, 0, 0.4) !important;
+    background: linear-gradient(135deg, #FF8811 0%, #FF4411 100%) !important;
+    color: #000000 !important;
+    box-shadow: 0 8px 25px rgba(255, 85, 0, 0.6) !important;
 }
 
 /* Divider */
@@ -261,7 +317,7 @@
 
 /* Visualizer */
 .profile-brand-card {
-    background: var(--border-minimal);
+    background: transparent;
     border-radius: 16px;
     padding: 10px;
 }
@@ -333,31 +389,15 @@
     cursor: pointer;
 }
 
-.seek-bar::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 14px;
-    height: 14px;
-    background: var(--brand-orange);
-    border-radius: 50%;
-    cursor: pointer;
-    box-shadow: 0 2px 8px var(--brand-orange-glow);
-}
 
-.seek-bar::-moz-range-thumb {
-    width: 14px;
-    height: 14px;
-    background: var(--brand-orange);
-    border: none;
-    border-radius: 50%;
-    cursor: pointer;
-    box-shadow: 0 2px 8px var(--brand-orange-glow);
-}
-
-.time-display {
-    color: var(--text-muted);
-    font-size: 0.85rem;
-    font-weight: 600;
-    min-width: 45px;
-    text-align: right;
+/* FORCE ROW RESPONSIVENESS ON SMALL MOBILE VIEWPORTS */
+@media (max-width: 768px) {
+    [data-testid="stHorizontalBlock"] {
+        flex-direction: column !important;
+        gap: 2rem !important;
+    }
+    [data-testid="column"] {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
 }
